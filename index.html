@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monitoramento CEMEAM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function showTab(tab) {
+            document.getElementById('fundamental').style.display = tab === 'fundamental' ? 'grid' : 'none';
+            document.getElementById('medio').style.display = tab === 'medio' ? 'grid' : 'none';
+            document.getElementById('uea').style.display = tab === 'uea' ? 'grid' : 'none';
+        }
+
+        let hideTimeout;
+
+        function toggleButtonsOnMouseMove() {
+            const buttonsContainer = document.querySelector('.buttons-container');
+
+            // Mostra os botões quando o mouse se move
+            buttonsContainer.style.display = 'block';
+
+            // Limpa o timeout anterior para reiniciar a contagem
+            clearTimeout(hideTimeout);
+
+            // Oculta os botões após 3 segundos de inatividade
+            hideTimeout = setTimeout(() => {
+                buttonsContainer.style.display = 'none';
+            }, 3000);
+        }
+
+        // Inicializa o evento de movimento do mouse
+        document.addEventListener('mousemove', toggleButtonsOnMouseMove);
+
+        // Mostra a aba Ensino Fundamental por padrão
+        document.addEventListener('DOMContentLoaded', () => showTab('fundamental'));
+    </script>
+</head>
+<body class="h-screen">
+
+    <!-- Título -->
+    <div class="text-center text-lg font-bold py-2">Monitoramento CEMEAM</div>
+
+    <!-- Abas -->
+    <div class="text-center mb-4 buttons-container">
+        <button class="px-4 py-1 bg-blue-500 text-white rounded" onclick="showTab('fundamental')">Ensino Fundamental</button>
+        <button class="px-4 py-1 bg-blue-500 text-white rounded ml-2" onclick="showTab('medio')">Ensino Médio</button>
+        <button class="px-4 py-1 bg-blue-500 text-white rounded ml-2" onclick="showTab('uea')">UEA</button>
+    </div>
+
+    <!-- Conteúdo Ensino Fundamental -->
+    <div id="fundamental" class="px-6 py-2 grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
+        <div class="rounded p-2 bg-gray-300 flex flex-col">
+            <h2 class="text-center font-semibold mb-2">Fundamental 06</h2>
+            <div class="flex-grow">
+                <iframe class="w-full h-60 sm:h-full" src="https://realmsweb.ip.tv/iframe/seduc-amef6" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="rounded p-2 bg-gray-300 flex flex-col">
+            <h2 class="text-center font-semibold mb-2">Fundamental 07</h2>
+            <div class="flex-grow">
+                <iframe class="w-full h-60 sm:h-full" src="https://realmsweb.ip.tv/iframe/seduc-amef7" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="rounded p-2 bg-gray-300 flex flex-col">
+            <h2 class="text-center font-semibold mb-2">Fundamental 08</h2>
+            <div class="flex-grow">
+                <iframe class="w-full h-60 sm:h-full" src="https://realmsweb.ip.tv/iframe/seduc-amef8" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="rounded p-2 bg-gray-300 flex flex-col">
+            <h2 class="text-center font-semibold mb-2">Fundamental 09</h2>
+            <div class="flex-grow">
+                <iframe class="w-full h-60 sm:h-full" src="https://realmsweb.ip.tv/iframe/seduc-amef9" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo Ensino Médio -->
+    <div id="medio" class="hidden px-6 py-2 grid grid-cols-1 sm:grid-cols-8 gap-4 h-full">
+        <!-- 3 principais à esquerda ocupando 5/8 da tela -->
+        <div class="sm:col-span-5 grid grid-cols-1 gap-4">
+            <div class="rounded p-2 bg-gray-300 flex flex-col">
+                <h2 class="text-center font-semibold mb-2">Médio 01</h2>
+                <div class="flex-grow">
+                    <iframe class="w-full h-96 sm:h-96" src="https://realmsweb.ip.tv/iframe/seduc-am1" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="rounded p-2 bg-gray-300 flex flex-col">
+                <h2 class="text-center font-semibold mb-2">Médio 02</h2>
+                <div class="flex-grow">
+                    <iframe class="w-full h-96 sm:h-96" src="https://realmsweb.ip.tv/iframe/seduc-am2" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="rounded p-2 bg-gray-300 flex flex-col">
+                <h2 class="text-center font-semibold mb-2">Médio 03</h2>
+                <div class="flex-grow">
+                    <iframe class="w-full h-96 sm:h-96" src="https://realmsweb.ip.tv/iframe/seduc-am3" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Canais restantes à direita ocupando 3/8 da tela -->
+        <div class="sm:col-span-3 grid grid-cols-1 gap-4">
+            <div class="rounded p-2 bg-gray-300 flex flex-col">
+                <h2 class="text-center font-semibold mb-2">EJA Médio 01</h2>
+                <div class="flex-grow">
+                    <iframe class="w-full h-96 sm:h-full" src="https://realmsweb.ip.tv/iframe/seduc-amejamedio1" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="rounded p-2 bg-gray-300 flex flex-col">
+                <h2 class="text-center font-semibold mb-2">EJA Médio 02</h2>
+                <div class="flex-grow">
+                    <iframe class="w-full h-96 sm:h-full" src="https://realmsweb.ip.tv/iframe/seduc-amejamedio2" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="rounded p-2 bg-gray-300 flex flex-col">
+                <h2 class="text-center font-semibold mb-2">EJA Médio 04</h2>
+                <div class="flex-grow">
+                    <iframe class="w-full h-96 sm:h-full" src="https://realmsweb.ip.tv/iframe/seduc-amejamedio4" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+            <div class="rounded p-2 bg-gray-300 flex flex-col">
+                <h2 class="text-center font-semibold mb-2">EJA Médio 05</h2>
+                <div class="flex-grow">
+                    <iframe class="w-full h-96 sm:h-full" src="https://realmsweb.ip.tv/iframe/seduc-amejamedio5" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Conteúdo Universidade do Estado do Amazonas -->
+    <div id="uea" class="px-6 py-2 grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
+        <div class="rounded p-2 bg-gray-300 flex flex-col">
+            <h2 class="text-center font-semibold mb-2">UEA 01</h2>
+            <div class="flex-grow">
+                <iframe class="w-full h-60 sm:h-full" src="https://realmsweb.ip.tv/iframe/uea1" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="rounded p-2 bg-gray-300 flex flex-col">
+            <h2 class="text-center font-semibold mb-2">UEA 02</h2>
+            <div class="flex-grow">
+                <iframe class="w-full h-60 sm:h-full" src="https://realmsweb.ip.tv/iframe/uea2" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="rounded p-2 bg-gray-300 flex flex-col">
+            <h2 class="text-center font-semibold mb-2">UEA 03</h2>
+            <div class="flex-grow">
+                <iframe class="w-full h-60 sm:h-full" src="https://realmsweb.ip.tv/iframe/uea3" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="rounded p-2 bg-gray-300 flex flex-col">
+            <h2 class="text-center font-semibold mb-2">UEA 04</h2>
+            <div class="flex-grow">
+                <iframe class="w-full h-60 sm:h-full" src="https://realmsweb.ip.tv/iframe/uea4" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
